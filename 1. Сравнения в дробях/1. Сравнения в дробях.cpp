@@ -1,7 +1,6 @@
 ﻿// 1. Сравнения в дробях.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-
 #include <iostream>
 
 class Fraction
@@ -18,12 +17,14 @@ public:
 	}
 	//эта функция параметром должна принимать второй объект с которым мы будем сравнивать
 	//параметр должен быть константный//передаём второй парамент по ссылке
+	// Возвращаемое значение типа bool будет true, если числители и знаменатели двух дробей совпадают, и false в противном случае.
 	bool operator==(const Fraction& other) const {
 		return (numerator_ == other.numerator_) && (denominator_ == other.denominator_);
 	}
 	//конвертируем логическое выражение при помощи !
 	bool operator!=(const Fraction& other) const {
-		return !(numerator_ == other.numerator_) && (denominator_ == other.denominator_);
+		
+		return !(numerator_ == other.numerator_ && denominator_ == other.denominator_);
 	}
 	bool operator>(const Fraction& other) const {
 		return (numerator_ * other.denominator_ > other.numerator_ * denominator_);
